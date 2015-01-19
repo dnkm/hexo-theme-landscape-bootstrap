@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%- url_for() %>"><%= config.title %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% for (var i in theme.menu){ %>
+          <% if (typeof theme.menu[i] === 'string') { %>
+            <li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+          <% } else if (typeof theme.menu[i] === 'object') { %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <%= i %><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+              <% for (var j in theme.menu[i]){ %>
+                <% if (j.indexOf('_header')== 0) { %>
+                  <li class="dropdown-header"><%= theme.menu[i][j] %></li>
+                <% } else if (j.indexOf('_delim')== 0) { %>
+                  <li class="divider"></li>
+                <% } else { %>
+                  <li><a href="<%- url_for(theme.menu[i][j]) %>"><%= j %></a></li>
+                <% } %>
+              <% } %>
+              </ul>
+            </li>
+          <% } %>
+        <% } %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% for (var i in theme.menu_right){ %>
+          <% if (typeof theme.menu_right[i] === 'string') { %>
+            <li><a href="<%- url_for(theme.menu_right[i]) %>"><%= i %></a></li>
+          <% } else if (typeof theme.menu_right[i] === 'object') { %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <%= i %><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+              <% for (var j in theme.menu_right[i]){ %>
+                <li><a href="<%- url_for(theme.menu_right[i][j]) %>"><%= j %></a></li>
+              <% } %>
+              </ul>
+            </li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
