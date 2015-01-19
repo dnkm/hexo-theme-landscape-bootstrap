@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Landscape
 
 A brand new default theme for [Hexo].
@@ -109,3 +110,7 @@ All of them are enabled by default. You can edit them in `widget` setting.
 [Fancybox]: http://fancyapps.com/fancybox/
 [Font Awesome]: http://fontawesome.io/
 [Grunt]: http://gruntjs.com/
+=======
+# hexo-theme-landscape-bootstrap
+hexo landscape theme + bootstrap header
+>>>>>>> 04baa8dac2c21a5bc877391035df811a9f3918cb
